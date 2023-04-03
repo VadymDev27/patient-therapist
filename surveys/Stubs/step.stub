@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Surveys\Steps;
+
+use Surveys\SurveyStep;
+use Illuminate\Http\Request;
+
+class DummyClass extends SurveyStep
+{
+    /**
+     * Name of the  which is sent to the view.
+     */
+    protected string $title = 'New step';
+
+    /**
+     * Name of the view which is used to find the Blade file.
+     */
+    protected string $viewName = 'blade.template';
+
+    /**
+     * Returns the names of all of the question fields (NOT including prefix)
+     */
+    protected static function fieldNameSuffixes(): array
+    {
+        return [];
+    }
+    /**
+     * Names of all of the required question fields (NOT including prefix)
+     */
+    protected static function requiredFieldNameSuffixes(): array
+    {
+        return [];
+    }
+
+    protected function handle(Request $request, array $payload): Result
+    {
+        return Result::success($payload);
+    }
+}

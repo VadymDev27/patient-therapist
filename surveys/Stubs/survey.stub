@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Surveys;
+
+use Surveys\AbstractSurvey;
+
+class DummyClass extends AbstractSurvey
+{
+    /**
+     * Display name of survey passed to view.
+     */
+    public static string $title = '';
+
+    /**
+     * Slug of survey used in URL and in database.
+     */
+    public static string $slug = '';
+
+    /**
+     * Prefix to all of the question field names.
+     */
+    protected string $prefix = '';
+
+    protected array $steps = [];
+
+    /**
+     * Whether or not this survey type will be marked with a week in the database.
+     */
+    public bool $weekly = false;
+
+    protected function processLastStep(): Response | Responsable | Renderable
+    {
+        return redirect()->route('dashboard');
+    }
+
+    public static function middleware(): array
+    {
+        return [];
+    }
+}

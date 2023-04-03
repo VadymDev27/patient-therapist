@@ -1,0 +1,1 @@
+<img {{ $attributes->merge(['src' => url('logo.png'), 'alt' => 'TOPDD Logo: Work together, learn together']) }}/>
